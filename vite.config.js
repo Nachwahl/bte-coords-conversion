@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import inject from '@rollup/plugin-inject'
+import fixConformalPlugin from './fix-conformal-plugin.js'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,6 +10,7 @@ export default defineConfig({
     inject({
       Buffer: ['buffer', 'Buffer'],
     }),
+    fixConformalPlugin(),
   ],
   base: '/bte-coords-conversion/',
   define: {
@@ -20,6 +22,21 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['buffer'],
+    include: ['buffer', '@bte-germany/terraconvert'],
+    exclude: [],
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true,
+      esmExternals: false,
+      requireReturnsDefault: 'auto',
+      defaultIsModuleExports: true,
+    },
   },
 })
