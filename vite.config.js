@@ -12,7 +12,7 @@ export default defineConfig({
   ],
   base: '/bte-coords-conversion/',
   define: {
-    'global': 'globalThis',
+    global: 'globalThis',
   },
   resolve: {
     alias: {

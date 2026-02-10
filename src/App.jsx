@@ -38,6 +38,9 @@ function App() {
   // State for results
   const [result, setResult] = useState(null)
   
+  // State for error messages
+  const [error, setError] = useState('')
+  
   // State for map
   const [mapPosition, setMapPosition] = useState([51.1657, 10.4515]) // Center of Germany
 
@@ -47,11 +50,12 @@ function App() {
   }
 
   const convertGeoToMC = () => {
+    setError('')
     const lat = parseFloat(latitude)
     const lon = parseFloat(longitude)
     
     if (isNaN(lat) || isNaN(lon)) {
-      alert('Bitte gültige Koordinaten eingeben')
+      setError('Bitte gültige Koordinaten eingeben')
       return
     }
     
@@ -70,11 +74,12 @@ function App() {
   }
   
   const convertMCToGeo = () => {
+    setError('')
     const x = parseFloat(mcX)
     const z = parseFloat(mcZ)
     
     if (isNaN(x) || isNaN(z)) {
-      alert('Bitte gültige Minecraft-Koordinaten eingeben')
+      setError('Bitte gültige Minecraft-Koordinaten eingeben')
       return
     }
     
@@ -106,6 +111,7 @@ function App() {
             onClick={() => {
               setMode('geoToMC')
               setResult(null)
+              setError('')
             }}
           >
             Real → Minecraft
@@ -115,6 +121,7 @@ function App() {
             onClick={() => {
               setMode('mcToGeo')
               setResult(null)
+              setError('')
             }}
           >
             Minecraft → Real
@@ -149,6 +156,12 @@ function App() {
             <button className="convert-btn" onClick={convertGeoToMC}>
               Konvertieren
             </button>
+            
+            {error && (
+              <div className="error">
+                <p>{error}</p>
+              </div>
+            )}
             
             {result && (
               <div className="result">
@@ -187,6 +200,12 @@ function App() {
             <button className="convert-btn" onClick={convertMCToGeo}>
               Konvertieren
             </button>
+            
+            {error && (
+              <div className="error">
+                <p>{error}</p>
+              </div>
+            )}
             
             {result && (
               <div className="result">

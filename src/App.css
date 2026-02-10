@@ -136,6 +136,20 @@ header p {
   background: #535bf2;
 }
 
+.error {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 0, 0, 0.1);
+  border: 2px solid #ff4444;
+  border-radius: 8px;
+  color: #ff6666;
+}
+
+.error p {
+  margin: 0;
+  font-weight: 500;
+}
+
 .result {
   margin-top: 2rem;
   padding: 1.5rem;
