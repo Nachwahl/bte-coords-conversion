@@ -1,16 +1,63 @@
-# React + Vite
+# BTE Coordinate Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eine React-Webanwendung zur Konvertierung zwischen Real-Life-Koordinaten und Minecraft-Koordinaten für Build The Earth (BTE) Projekte.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🌍 **Real-Life zu Minecraft**: Konvertiere GPS-Koordinaten (Breitengrad/Längengrad) zu Minecraft-Koordinaten
+- 🎮 **Minecraft zu Real-Life**: Konvertiere Minecraft-Koordinaten zurück zu GPS-Koordinaten
+- 📁 **Region-Datei Berechnung**: Zeigt die entsprechende Minecraft Region-Datei (.mca) an
+- 🗺️ **Interaktive Karte**: Klicke auf die Karte, um Koordinaten auszuwählen
+- 📱 **Responsive Design**: Funktioniert auf Desktop und mobilen Geräten
 
-## React Compiler
+## Technologie
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** - UI Framework
+- **Vite** - Build Tool
+- **@bte-germany/terraconvert** - Koordinaten-Konvertierung
+- **Leaflet** - Interaktive Karten
+- **GitHub Pages** - Deployment
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+## Entwicklung
+
+```bash
+npm run dev
+```
+
+Öffne [http://localhost:5173](http://localhost:5173) in deinem Browser.
+
+## Build
+
+```bash
+npm run build
+```
+
+## Deployment
+
+Die Anwendung wird automatisch über GitHub Actions auf GitHub Pages deployed, wenn Änderungen auf den `main` Branch gepusht werden.
+
+## Verwendung
+
+1. Wähle den Konvertierungsmodus (Real → Minecraft oder Minecraft → Real)
+2. Gib die Koordinaten ein oder klicke auf die Karte
+3. Klicke auf "Konvertieren"
+4. Sieh dir die Ergebnisse und die Region-Datei an
+
+## Beispiele
+
+**Berlin (Brandenburger Tor)**
+- Breitengrad: 52.516275
+- Längengrad: 13.377704
+- Minecraft X: ~3788400
+- Minecraft Z: ~-5235000
+
+## Lizenz
+
+MIT
+
